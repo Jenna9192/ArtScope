@@ -1,0 +1,41 @@
+{
+    "Medieval to Early Modern": {
+        "Medieval Europe": ["Medieval Art", "The Cloisters"],
+        "European Traditions": ["Arms and Armor", "Musical Instruments"],
+        "Renaissance to 18th Century Europe": ["European Sculpture and Decorative Arts",
+                                                "The Robert Lehman Collection"]
+    },
+    "Modern & Contemporary": {
+        "Modern Art": ["Modern Art", "Photographs", "Drawings and Prints"],
+        "Fashion & Material Culture": ["The Costume Institute"],
+        "Archives": ["The Libraries"]
+    },
+    "Geographic Cultural Regions": {
+        "Americas & Europe": ["American Decorative Arts", "European Paintings", "Greek and Roman Art"],
+        "Africa, Oceania, Asia": ["Arts of Africa, Oceania, and the Americas", "Egyptian Art"],
+        "Asian": ["Asian Art", "Islamic Art", "Ancient Near Eastern Art"]
+    }
+}
+
+{
+  "Materials": {
+    "Metals": ["gold", "silver", "metal", "steel", "copper", 
+                        "brass", "iron", "bronze","alloy", "metallic"],
+    "Ceramics & Glass": ["porcelain", "stoneware", "earthenware;", "slip", "glaze","enamel", "glass"],
+    "Textiles & Organics": ["silk", "cotton", "wool", "linen", "leather", "fiber", "thread",
+                            "ivory", "mother-of-pearl", "shell", "beads"],
+    "Plastics & Synthetics": ["plastic", "synthetic"],
+    "Wood": ["wood"]
+  },
+  "Supports & Presentation": {
+    "Paper & Sheet Supports": ["paper", "wove", "laid"],
+    "Framing & Mounting": ["framing", "mounted"]
+  },
+  "Techniques": {
+    "Drawing & Painting Techniques": ["ink", "pen", "graphite", "chalk", "wash", "brush", "illustrations", 
+                                    "watercolor","gouache","paint", "painted", "pigment", "oil"],
+    "Printmaking Techniques": ["etching", "engraving", "drypoint", "aquatint", "lithograph", "woodcut"],
+    "Surface Treatment & Construction": ["gilt", "gilded", "traces", "decoration", "lacquer",
+                                        "carved", "cut", "lines", "heightened", "printed", "state"],
+  }
+}
