@@ -17,7 +17,7 @@ const DEPARTMENT_HIERARCHY = {
   },
   "Geographic Cultural Regions": {
     "Americas & Europe": ["American Decorative Arts", "European Paintings", "Greek and Roman Art"],
-    "Africa & Asia": ["Arts of Africa, Oceania, and the Americas", "Egyptian Art"],
+    "Africa & Oceania": ["Arts of Africa, Oceania, and the Americas", "Egyptian Art"],
     "Asian": ["Asian Art", "Islamic Art", "Ancient Near Eastern Art"]
   }
 };
@@ -25,40 +25,52 @@ const DEPARTMENT_HIERARCHY = {
 
 // time periods
 const TIME_HIERARCHY = {
-  "Antiquity & Classical Eras": {
-    "Early Civilizations": {
+  "Early Global Histories": {
+    "Formative Societies": {
       "Before 3000 BCE": { minYear: -9999, maxYear: -3000 },
       "3000–1000 BCE": { minYear: -3000, maxYear: -1000 }
     },
-    "Classical Worlds": {
-      "Greece & Mediterranean (1000–0 BCE)": { minYear: -1000, maxYear: 0 },
-      "Roman & Late Antiquity (0–500 CE)": { minYear: 0, maxYear: 500 }
+    "Early Complex Societies": {
+      "1000–0 BCE": { minYear: -1000, maxYear: 0 }
     }
   },
-  "The Medieval World": {
-    "Early Medieval": { "500–1000 CE": { minYear: 500, maxYear: 1000 } },
-    "High & Late Medieval": { "1000–1400 CE": { minYear: 1000, maxYear: 1400 } }
-  },
-  "Renaissance to Enlightenment": {
-    "Renaissance": { "1400–1600 CE": { minYear: 1400, maxYear: 1600 } },
-    "Early Modern Europe": {
-      "Baroque & Rococo (1600–1750)": { minYear: 1600, maxYear: 1750 },
-      "Age of Enlightenment (1750–1800)": { minYear: 1750, maxYear: 1800 }
-    }
-  },
-  "Industrial & Modern Period": {
-    "19th Century": {
-      "1800–1850": { minYear: 1800, maxYear: 1850 },
-      "1850–1900": { minYear: 1850, maxYear: 1900 }
+  "First Millennium CE": {
+    "Early First Millennium": {
+      "0–500 CE": { minYear: 0, maxYear: 500 }
     },
-    "Early 20th Century": { "1900–1945": { minYear: 1900, maxYear: 1945 } },
-    "Mid-Century Modern": { "1945–1980": { minYear: 1945, maxYear: 1980 } }
+    "Late First Millennium": {
+      "500–1000 CE": { minYear: 500, maxYear: 1000 }
+    }
   },
-  "Contemporary Era": {
-    "Late 20th Century": { "1980–2000": { minYear: 1980, maxYear: 2000 } },
-    "21st Century": { "2000–Present": { minYear: 2000, maxYear: 9999 } }
+  "Second Millennium": {
+    "Early Second Millennium": {
+      "1000–1400 CE": { minYear: 1000, maxYear: 1400 }
+    },
+    "Global Early Modern Period": {
+      "1400–1800 CE": { minYear: 1400, maxYear: 1800 }
+    }
+  },
+  "Industrial": {
+    "Nineteenth Century Transformations": {
+      "1800–1900": { minYear: 1800, maxYear: 1900 }
+    },
+    "Early Twentieth Century": {
+      "1900–1945": { minYear: 1900, maxYear: 1945 }
+    },
+    "Mid-Twentieth Century": {
+      "1945–1980": { minYear: 1945, maxYear: 1980 }
+    }
+  },
+  "Late Modern": {
+    "Late Twentieth Century": {
+      "1980–2000": { minYear: 1980, maxYear: 2000 }
+    },
+    "Twenty-First Century": {
+      "2000–Present": { minYear: 2000, maxYear: 9999 }
+    }
   }
 };
+
 
 
 // mediums
@@ -424,11 +436,13 @@ function App() {
     
     doFetch();
     
-    // Cleanup: abort fetch if filters change before it completes
+    // cleanup: abort fetch if filters change before it completes
     return () => abortController.abort();
     
   }, [departments, mediums, timePeriod, apiDepartments]);
 
+
+  // match the filter to make sure that the artworks picked fit all filters chosen
   const matchesFilters = (artwork, filters) => {
     // check time period
     if (filters.timePeriod) {
@@ -451,6 +465,8 @@ function App() {
     return true;
   };
 
+
+  // this is to retrieve artworks using the search functions
   const handleSearch = async () => {
     if (!searchQuery.trim()) return;
     
